@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+    color:white;
+}
+
+
+.home ul li {
+    display: flex;
+    gap: 15px;
+    width: 14px;
+    list-style: none;
+    padding-top: 14px;
+    font-weight: bold;
+    /* font-family: ; */
+}
+
+.left {
+    width: 25vw;
+    padding: 10px;
+}
+
+.right {
+    width: 75vw;
+    margin: 16px 0;
+    /* height: 80vh; */
+}
+
+.heading{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding-top: 14px;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 23px 14px;
+}
+
+.heading img{
+    height: 30px;
+}
+
+.library{
+    min-height: 80vh;
+    position: relative;
+}
+
+.footer{
+    display: flex;
+    font-size: 10px;
+    gap: 13px;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 14px;
+}
+
+.footer a{
+    color: grey;
+    text-decoration: none;
+}
+
+.nav img{
+    height: 23px;
+}
+
+
+.header{
+    display: flex;
+    background-color: rgb(39, 39, 39);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > *{
+    padding: 20px;
+    
+}
+
+.spotifyPlaylists{
+    padding: 16px;
+}
+
+.card-container{
+    margin: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+.card{
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+    position: relative;
+}
+
+.card img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.card > *{
+    padding-top: 10px;
+}
+
+.play{
+    position: absolute;
+    right: 20px;
+    bottom: 92px;
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.card:hover{
+    opacity: 1;
+}
+
+.buttons > *{
+    margin: 0 12px;
+}
+
+.signUpBtn{
+    background-color: rgb(39, 39, 39);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #575555;
+}
+
+.signUpBtn:hover{
+    /* font-size: 17px; */
+    color: rgb(124, 119, 119);
+    /* padding: 12px; */
+}
+
+.logInBtn{
+    background-color: white;
+    border-radius: 21px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    width: 79px;
+}
+
+.logInBtn:hover{
+    Transform: scale(1.05);
+    color: rgb(124, 119, 119);
+}
