@@ -30,6 +30,7 @@ body{
     width: 75vw;
     margin: 16px 0;
     /* height: 80vh; */
+    position: relative;
 }
 
 .heading{
@@ -158,4 +159,76 @@ body{
 .logInBtn:hover{
     Transform: scale(1.05);
     color: rgb(124, 119, 119);
+}
+
+.playbar{
+    position: fixed;
+    bottom: 50px;
+    background-color: green;
+    width: 70vw;
+    padding: 12px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+}
+
+.songLists{
+    height: 444px;
+    overflow: auto;
+    margin-bottom: 44px;
+}
+
+.songLists .info{
+    font-size: 13px;
+    width: 344px;
+}
+
+.songLists ul{
+    padding: 0 12px;
+}
+
+.songLists ul li{
+    list-style: none;
+    list-style-type: decimal;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    border: 1px solid white;
+    padding: 13px;
+    border-radius: 5px;
+    margin: 12px 0;
+}
+
+.playnow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playnow span{
+    font-size: 15px;
+    width: 64px;
+}
+
+.seekbar{
+    height: 2px;
+    position: absolute;
+    bottom: 5px;
+    border: 2px solid rgb(217, 255, 0);
+    background-color: yellow;
+    width: 95%;
+    border-radius: 10px;
+}
+
+.circle{
+    height: 15px;
+    background-color: black;
+    width: 15px;
+    border-radius: 50%;
+    position: relative;
+    bottom: 7px;
+    left: 0%;
+    transition: left 0.5s;
 }
