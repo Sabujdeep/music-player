@@ -1,3 +1,13 @@
+let currentSong = new Audio();
+
+function secondsToMinuteSeconds(totalSeconds) {
+     const wholeSeconds = Math.floor(totalSeconds); // ignore fractional part
+  const minutes = Math.floor(wholeSeconds / 60);
+  const seconds = wholeSeconds % 60;
+
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
+
 const getSongs = async () => {
     let a = await fetch('http://127.0.0.1:5500/cb/');
     let response = await a.text();
@@ -24,18 +34,25 @@ const getSongs = async () => {
 
 }
 
-const playMusic = (songs) =>{
-    // let audio = new Audio(+songs);
-    //     audio.play();
+const playMusic = (songName, pause = fasle) => {
+    // let audio = new Audio(`http://127.0.0.1:5500/cb/${encodeURIComponent(songName)}`);
+    currentSong.src = `http://127.0.0.1:5500/cb/${encodeURIComponent(songName)}`
+    if(!pause){
+        currentSong.play();
+        play.src = "/img/pause.svg"
+    }
+    document.querySelector(".songInfo").innerHTML = songName
+    document.querySelector(".songTime").innerHTML = "00:00/00:00"
+    // console.log("Playing:", songName);
+};
 
-    console.log(songs)
-}
 
 async function main() {
 
     // let currenSong = 
 
     let songs = await getSongs();
+    playMusic(songs[0], true)
 
     let songsUL = document.querySelector(".songLists").getElementsByTagName("ul")[0];
 
@@ -44,7 +61,7 @@ async function main() {
 
     for (const song of songs) {
         // Correctly add a single list item for each song
-        songsUL.innerHTML += `<li>
+        songsUL.innerHTML += `<li data-song="${song}">
                             <img class = "invert" src="img/music.svg" alt="">
                             <div class="info">
                                 <div>
@@ -59,24 +76,31 @@ async function main() {
                         </li>`;
     }
 
-    // This part remains the same
-    if (songs.length > 0) {
-        let audio = new Audio(songs[0]);
-        // audio.play();
 
-        audio.addEventListener("loadeddata", () => {
-            let duration = audio.duration;
-            // console.log(duration); 
-        });
-    }
-
-
-    Array.from(document.querySelector(".songLists").getElementsByTagName("li")).forEach(e=>{
+    Array.from(document.querySelector(".songLists").getElementsByTagName("li")).forEach(e => {
         // console.log(e.querySelector(".info").firstElementChild.innerHTML)
 
-        e.addEventListener("click", element =>{
-            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
-        } )
+        e.addEventListener("click", () => {
+            playMusic(e.getAttribute("data-song"))
+        })
+    })
+
+
+    play.addEventListener("click", () => {
+        if (currentSong.paused) {
+            currentSong.play()
+            play.src = "/img/pause.svg"
+
+        } else {
+            currentSong.pause()
+            play.src = "/img/play.svg"
+        }
+    })
+
+
+    currentSong.addEventListener("timeupdate", () => {
+        document.querySelector(".songTime").innerHTML = `${secondsToMinuteSeconds(currentSong.currentTime)}
+        /${secondsToMinuteSeconds(currentSong.duration)}`
     })
 }
 
