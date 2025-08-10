@@ -220,6 +220,7 @@ body{
     background-color: yellow;
     width: 95%;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .circle{
