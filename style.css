@@ -237,3 +237,47 @@ body{
 .songbuttons img{
     cursor: pointer;
 }
+
+.hamburger{
+        display: none;
+    }
+
+.hamburgerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+
+/* media queries */
+
+@media (max-width: 1440px) {
+    .left{
+        position: absolute;
+        left: -120%;
+        transition: all .3s;
+        z-index: 1;
+        width: 373   px;
+        background-color: black;
+    }
+
+    .left .close{
+        position: absolute;
+        right: 31px;
+        top: 25px;
+        width: 29px;
+    }
+
+    .right{
+        width: 100vw;
+    }
+
+    .playbar{
+        width: 95vw;
+    }
+
+    .hamburger{
+        display: block;
+    }
+}

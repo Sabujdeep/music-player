@@ -34,7 +34,7 @@ const getSongs = async () => {
 
 }
 
-const playMusic = (songName, pause = fasle) => {
+const playMusic = (songName, pause = false) => {
     // let audio = new Audio(`http://127.0.0.1:5500/cb/${encodeURIComponent(songName)}`);
     currentSong.src = `http://127.0.0.1:5500/cb/${encodeURIComponent(songName)}`
     if(!pause){
@@ -111,6 +111,16 @@ async function main() {
         document.querySelector(".circle").style.left = percent + "%"
 
         currentSong.currentTime = ((currentSong.duration) * percent)/100
+    })
+
+    // add an event listener for hamburger
+    document.querySelector(".hamburger").addEventListener("click",()=>{
+        document.querySelector(".left").style.left = "0"
+    })
+
+        // add an event listener for hamburger
+    document.querySelector(".close").addEventListener("click",()=>{
+        document.querySelector(".left").style.left = "-120%"
     })
 }
 
