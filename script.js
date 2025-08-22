@@ -100,7 +100,7 @@ async function main() {
 
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songTime").innerHTML = `${secondsToMinuteSeconds(currentSong.currentTime)}
-        /${secondsToMinuteSeconds(currentSong.duration)}`
+        / ${secondsToMinuteSeconds(currentSong.duration)}`
 
         document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration) * 100 + "%"
     })

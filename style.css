@@ -87,13 +87,17 @@ body{
     padding: 16px;
 }
 
+.spotifyPlaylists h2{
+    padding: 16px;
+}
+
 .card-container{
     margin: 30px;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
-    overflow-y: scroll;
-    max-height: 50vh;
+    overflow-y: auto;
+    min-height: 50vh;
 }
 .card{
     width: 200px;
@@ -170,7 +174,7 @@ body{
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
-    height: 40px;
+    min-height: 40px;
 }
 
 .songLists{
@@ -249,6 +253,10 @@ body{
     gap: 14px;
 }
 
+.close{
+    display: none;
+}
+
 
 /* media queries */
 
@@ -258,7 +266,7 @@ body{
         left: -120%;
         transition: all .3s;
         z-index: 1;
-        width: 373   px;
+        width: 373px;
         background-color: black;
     }
 
@@ -271,13 +279,37 @@ body{
 
     .right{
         width: 100vw;
+        margin: 0;
     }
 
     .playbar{
-        width: 95vw;
+        width: calc(100vw - 70px);
+    }
+
+    .seekbar{
+        width: calc(100vw - 70px);
     }
 
     .hamburger{
         display: block;
+    }
+
+    .card{
+        width: 90vw;
+    }
+
+    .card-container{
+        margin: 0px;
+        justify-content: center;
+    }
+
+    .close{
+        display: block;
+    }
+
+    .aboveBar{
+        flex-direction: column;
+        gap: 23px;
+        align-items: center;
     }
 }
